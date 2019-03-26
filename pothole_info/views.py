@@ -6,6 +6,7 @@ from rest_framework.generics import ListCreateAPIView, ListAPIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView
+
 class PotholeList(ListCreateAPIView):
     """
     List all potholes, or add a new pothole.
