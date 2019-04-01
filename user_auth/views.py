@@ -6,4 +6,4 @@ class CreateUser(CreateAPIView):
     """
         Creates a new User
     """
-    serializer_class=UserSerializer
+    serializer_class = UserSerializer

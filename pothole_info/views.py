@@ -27,6 +27,7 @@ class PotholeList(ListCreateAPIView):
             serializer = PotholeInfoSerializer(queryset, many=True)
         return Response(serializer.data)
 
+
 class PotholeView(APIView): 
        
     def get(self, request, format=None):
@@ -37,7 +38,7 @@ class PotholeView(APIView):
     def post(self, request, format=None):
         # print(request.data)
         pothole = PotholeInfo()
-        pothole.api_save(**request.data)
+        pothole.api_save(user=request.user, **request.data)
         serializer = PotholeInfoSerializer(pothole)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 

@@ -4,6 +4,7 @@ from django.conf import settings
 from django.core.files import File
 from django.core.files.base import ContentFile
 from django.core.validators import MaxValueValidator, MinValueValidator 
+from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.signals import post_save
 from io import BytesIO
@@ -24,24 +25,27 @@ class PotholeInfo(models.Model):
     lat  = models.DecimalField(max_digits=9, decimal_places=6)
     long = models.DecimalField(max_digits=9, decimal_places=6)
     img = models.ImageField(upload_to='pothole_info/images/img')
-    img_with_potholes = models.ImageField(upload_to='pothole_info/images/img_with_potholes',
+    img_with_potholes = models.ImageField(
+                            upload_to='pothole_info/images/img_with_potholes',
                             null=True, blank=True)
     added_on = models.DateTimeField(auto_now=True)
-    danger_level = models.PositiveIntegerField(validators=[MinValueValidator(1), MaxValueValidator(100)])
+    danger_level = models.PositiveIntegerField(
+                            validators=[MinValueValidator(1),
+                                        MaxValueValidator(100)])
     user_feedback = models.TextField(blank=True, null=True)
+    uploaded_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
     def api_save(self, *args, **kwargs):
-        # print(', '.join(['{}={!r}'.format(k, v) for k, v in kwargs.items()]))
         self.danger_level = kwargs['danger_level'][0]
         self.user_feedback = kwargs['user_feedback'][0]
 
         self.lat = kwargs['lat'][0]
         self.long = kwargs['long'][0]
+        self.uploaded_by = kwargs['user']
 
         image_data = kwargs['img'][0]
-        format, imgstr = image_data.split(';base64,')
-        # print("format", format)
-        ext = format.split('/')[-1]
+        file_format, imgstr = image_data.split(';base64,')
+        ext = file_format.split('/')[-1]
         data = ContentFile(base64.b64decode(imgstr))  
         file_name = "'myphoto." + ext
         self.img.save(file_name, data, save=True)
@@ -56,9 +60,9 @@ class PotholeInfo(models.Model):
         return path
     
     def get_image_with_pothole_name(self):
-        path = str(self.img.name)
-        path = path.replace('/img/', '/img_with_potholes/')
-        return path
+        name = str(self.img.name)
+        name = name.replace('/img/', '/img_with_potholes/')
+        return name
 
     @classmethod
     def create_img_with_potholes(cls, instance, content):
@@ -72,7 +76,6 @@ class PotholeInfo(models.Model):
     def add_image_with_potholes(cls, sender, instance, **kwargs):
         try:
             """Adds img_with_potholes_for_image before saving the image"""
-            print("check",instance.img.path)
             headers = {'enctype': 'multipart/form-data'}
             # print(instance.img.path, instance.img.name)
             r = requests.post(settings.TF_SERVER,
@@ -83,6 +86,7 @@ class PotholeInfo(models.Model):
             file.close()
         except Exception as e:
             print(e)
+    
 
 post_save.connect(PotholeInfo.add_image_with_potholes, sender=PotholeInfo)
 
