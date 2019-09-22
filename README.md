@@ -1,3 +1,35 @@
+
+## Setting up Backend Server
+
+1. Create Virtual Environment
+    
+        mkvirtualenv --python=/usr/bin/python3.5 myenv
+
+2. Install Django Framework
+      
+        pip install django
+
+3. Install Dependencies by pip
+
+        pip install -r requirements.txt
+        
+4. Start the virtual environment and Go to the project directory
+          
+          source bin/activate
+          cd AI_Hackathon_Server_Code-master/Django_Backend
+          
+          
+5. Run Django Server
+
+        python manage.py runserver
+
+So the server will run on the localhost.
+
+## Mobile Application Ionic Code: 
+https://github.com/garvitkataria/Pothole-Detection-App
+
+<hr>
+
 # Pothole Detection System using UAV Imagery and Smartphone Devices
 Potholes have been a major cause of causalities in India. As per the latest data, in
 2017, a total of 4,64,910 road accidents were reported in India. A constant
