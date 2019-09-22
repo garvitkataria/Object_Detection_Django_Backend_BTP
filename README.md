@@ -12,7 +12,8 @@ from the images and map it to the Google Maps in real time.
 Django, Flask, Ionic 4.0, Angular, TensorFlow
 
 ### Server Architecture
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![alt text](https://github.com/garvitkataria/Object_Detection_Django_Backend_BTP/blob/master/BTP_Results/mobile_app_features/server_arch.png)
+
 ## About The Dataset
 
 Source: http://machineintelligenceafrica.org/activities/hackathon/
@@ -46,6 +47,12 @@ Feedback feature
 </li>
 </ul>
 
+![alt text](https://github.com/garvitkataria/Object_Detection_Django_Backend_BTP/blob/master/BTP_Results/mobile_app_features/feedback.png)
+
+![alt text](https://github.com/garvitkataria/Object_Detection_Django_Backend_BTP/blob/master/BTP_Results/mobile_app_features/Map.png)
+
+![alt text](https://github.com/garvitkataria/Object_Detection_Django_Backend_BTP/blob/master/BTP_Results/mobile_app_features/verification.png)
+
 ## Experimental analysis
 We were able to train 3 tensor-flow deep learning state of the art models for object detection. The models and their results are listed below.
  
@@ -78,3 +85,19 @@ Prototype of one such low-cost road maintenance system by detecting potholes
 from images and videos gathered from smartphone devices by using state of the art
 deep learning models. The objective is to detect the potholes from the images and
 map it to the Google Maps in real time.
+
+## Results
+
+![alt text](https://github.com/garvitkataria/Object_Detection_Django_Backend_BTP/blob/master/BTP_Results/Screenshot%202019-04-16%20at%2011.17.04%20AM.png)
+
+![alt text](https://github.com/garvitkataria/Object_Detection_Django_Backend_BTP/blob/master/BTP_Results/Screenshot%202019-04-16%20at%2011.12.15%20AM.png)
+
+![alt text](https://github.com/garvitkataria/Object_Detection_Django_Backend_BTP/blob/master/BTP_Results/Screenshot%202019-04-16%20at%2011.08.16%20AM.png)
+
+![alt text](https://github.com/garvitkataria/Object_Detection_Django_Backend_BTP/blob/master/BTP_Results/Screenshot%202019-04-16%20at%2011.07.27%20AM.png)
+
+![alt text](https://github.com/garvitkataria/Object_Detection_Django_Backend_BTP/blob/master/BTP_Results/Screenshot%202019-04-16%20at%2011.03.37%20AM.png)
+
+![alt text](https://github.com/garvitkataria/Object_Detection_Django_Backend_BTP/blob/master/BTP_Results/Screenshot%202019-04-16%20at%2011.12.15%20AM.png)
+
+![alt text](https://github.com/garvitkataria/Object_Detection_Django_Backend_BTP/blob/master/BTP_Results/Screenshot%202019-04-16%20at%2011.13.03%20AM.png)
