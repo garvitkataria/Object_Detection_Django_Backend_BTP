@@ -1,4 +1,4 @@
-# Object_Detection_Django_Backend_BTP
+# Pothole Detection System using UAV Imagery and Smartphone Devices
 Potholes have been a major cause of causalities in India. As per the latest data, in
 2017, a total of 4,64,910 road accidents were reported in India. A constant
 detection of potholes and repair in proper time can not only result in ensure road
