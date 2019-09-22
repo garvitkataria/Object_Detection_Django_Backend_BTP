@@ -8,6 +8,11 @@ potholes from images and videos gathered from drones and smartphone devices by
 using state of the art deep learning models. The objective is to detect the potholes
 from the images and map it to the Google Maps in real time.
 
+### Tech. Stack
+Django, Flask, Ionic 4.0, Angular, TensorFlow
+
+### Server Architecture
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
 ## About The Dataset
 
 Source: http://machineintelligenceafrica.org/activities/hackathon/
